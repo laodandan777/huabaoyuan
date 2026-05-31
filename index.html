@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>青岛华宝源通讯工程有限公司 - 通信工程施工专家</title>
+<style>
+  /* ===== Reset & Base ===== */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Microsoft YaHei", "PingFang SC", "Helvetica Neue", Arial, sans-serif;
+    color: #333;
+    background: #fff;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  a { text-decoration: none; color: inherit; }
+  img { max-width: 100%; height: auto; display: block; }
+  ul { list-style: none; }
+
+  /* ===== Colors ===== */
+  :root {
+    --primary: #0d47a1;
+    --primary-light: #1565c0;
+    --primary-lighter: #1976d2;
+    --accent: #0288d1;
+    --bg-light: #e8f4fd;
+    --bg-lighter: #f0f8ff;
+    --bg-white: #ffffff;
+    --text-dark: #1a1a2e;
+    --text-mid: #555;
+    --text-light: #888;
+    --border: #d6e4f0;
+    --gradient-hero: linear-gradient(135deg, #0d47a1 0%, #1976d2 40%, #42a5f5 100%);
+    --shadow-sm: 0 2px 8px rgba(13,71,161,0.08);
+    --shadow-md: 0 4px 20px rgba(13,71,161,0.12);
+    --shadow-lg: 0 8px 40px rgba(13,71,161,0.15);
+    --radius: 8px;
+    --radius-lg: 16px;
+  }
+
+  /* ===== Header ===== */
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    transition: all 0.3s;
+  }
+  header.scrolled { box-shadow: var(--shadow-md); }
+  .header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .logo-img {
+    height: 44px;
+    width: auto;
+    mix-blend-mode: multiply;
+    filter: drop-shadow(0 1px 3px rgba(13,71,161,0.15));
+  }
+  nav { display: flex; gap: 8px; }
+  nav a {
+    padding: 8px 18px;
+    font-size: 15px;
+    color: var(--text-mid);
+    border-radius: 6px;
+    transition: all 0.2s;
+    font-weight: 500;
+  }
+  nav a:hover, nav a.active { color: var(--primary); background: var(--bg-light); }
+  .menu-btn {
+    display: none;
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: var(--bg-light);
+    border-radius: 8px;
+    cursor: pointer;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+  }
+  .menu-btn span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: var(--primary);
+    border-radius: 1px;
+    transition: all 0.3s;
+  }
+  .menu-btn.open span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
+  .menu-btn.open span:nth-child(2) { opacity: 0; }
+  .menu-btn.open span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
+
+  /* ===== Sections ===== */
+  section { padding: 80px 24px; }
+  section:nth-child(even) { background: var(--bg-lighter); }
+  .section-inner { max-width: 1200px; margin: 0 auto; }
+  .section-label {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+  }
+  .section-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 16px;
+    position: relative;
+  }
+  .section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: var(--gradient-hero);
+    border-radius: 2px;
+    margin-top: 12px;
+  }
+  .section-desc {
+    font-size: 17px;
+    color: var(--text-mid);
+    max-width: 700px;
+    margin-bottom: 40px;
+  }
+
+  /* ===== Hero ===== */
+  #hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    padding-top: 72px;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-hero);
+    z-index: 0;
+  }
+  .hero-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.06'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    padding: 0 24px;
+  }
+  .hero-logo {
+    width: 180px;
+    margin: 0 auto 24px;
+    mix-blend-mode: screen;
+    filter: brightness(1.3) drop-shadow(0 0 30px rgba(255,255,255,0.5)) drop-shadow(0 0 60px rgba(66,165,245,0.4));
+    animation: logoGlow 3s ease-in-out infinite alternate;
+    opacity: 0.92;
+  }
+  @keyframes logoGlow {
+    0% { filter: brightness(1.2) drop-shadow(0 0 30px rgba(255,255,255,0.4)) drop-shadow(0 0 60px rgba(66,165,245,0.3)); }
+    100% { filter: brightness(1.5) drop-shadow(0 0 45px rgba(255,255,255,0.7)) drop-shadow(0 0 80px rgba(66,165,245,0.6)); }
+  }
+  .hero-badge {
+    display: inline-block;
+    padding: 6px 20px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(8px);
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 24px;
+    letter-spacing: 3px;
+  }
+  .hero-content h1 {
+    font-size: 48px;
+    font-weight: 800;
+    margin-bottom: 16px;
+    letter-spacing: 2px;
+    line-height: 1.2;
+  }
+  .hero-content p {
+    font-size: 20px;
+    opacity: 0.9;
+    margin-bottom: 36px;
+    font-weight: 300;
+  }
+  .hero-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 32px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s;
+    letter-spacing: 1px;
+  }
+  .btn-primary {
+    background: #fff;
+    color: var(--primary);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(0,0,0,0.2); }
+  .btn-outline {
+    background: transparent;
+    color: #fff;
+    border: 2px solid rgba(255,255,255,0.5);
+  }
+  .btn-outline:hover { background: rgba(255,255,255,0.1); border-color: #fff; }
+
+  .hero-stats {
+    display: flex;
+    gap: 48px;
+    justify-content: center;
+    margin-top: 48px;
+    flex-wrap: wrap;
+  }
+  .hero-stat { text-align: center; }
+  .hero-stat .num {
+    font-size: 40px;
+    font-weight: 800;
+    line-height: 1;
+  }
+  .hero-stat .label {
+    font-size: 14px;
+    opacity: 0.8;
+    margin-top: 4px;
+  }
+  .scroll-indicator {
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: bounce 2s infinite;
+    opacity: 0.7;
+  }
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+    40% { transform: translateX(-50%) translateY(-10px); }
+    60% { transform: translateX(-50%) translateY(-5px); }
+  }
+
+  /* ===== About ===== */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+  .about-image {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+  }
+  .about-image img { width: 100%; height: 400px; object-fit: cover; }
+  .about-image::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(13,71,161,0.3), transparent);
+    z-index: 1;
+  }
+  .about-text .company-name {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 16px;
+  }
+  .about-text p {
+    font-size: 16px;
+    color: var(--text-mid);
+    margin-bottom: 16px;
+    line-height: 1.8;
+  }
+  .about-features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 24px;
+  }
+  .about-feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px;
+    background: #fff;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border);
+  }
+  .about-feature .icon {
+    font-size: 24px;
+    width: 48px;
+    height: 48px;
+    background: var(--bg-light);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .about-feature h4 { font-size: 15px; color: var(--text-dark); margin-bottom: 2px; }
+  .about-feature p { font-size: 13px; color: var(--text-light); margin: 0; }
+
+  /* ===== Services ===== */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+  }
+  .service-card {
+    background: #fff;
+    border-radius: var(--radius-lg);
+    padding: 36px 28px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border);
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+  .service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-light);
+  }
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-hero);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .service-card:hover::before { opacity: 1; }
+  .service-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--bg-light);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  .service-card h3 { font-size: 20px; color: var(--text-dark); margin-bottom: 8px; }
+  .service-card p { font-size: 14px; color: var(--text-mid); line-height: 1.7; }
+
+  /* ===== Partners ===== */
+  .partners-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 32px;
+    align-items: center;
+    justify-items: center;
+  }
+  .partner-card {
+    text-align: center;
+    padding: 24px 16px;
+    background: #fff;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s;
+    width: 100%;
+    border: 1px solid var(--border);
+  }
+  .partner-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+  .partner-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
+    padding: 8px;
+  }
+  .partner-logo img { max-height: 64px; max-width: 100%; object-fit: contain; }
+
+  /* ===== Gallery ===== */
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+  }
+  .gallery-item {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    cursor: pointer;
+    aspect-ratio: 4/3;
+    box-shadow: var(--shadow-sm);
+  }
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+  }
+  .gallery-item:hover img { transform: scale(1.05); }
+  .gallery-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(13,71,161,0.85), transparent 60%);
+    display: flex;
+    align-items: flex-end;
+    padding: 20px;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .gallery-item:hover .gallery-overlay { opacity: 1; }
+  .gallery-overlay span {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  /* ===== Honors ===== */
+  .honors-timeline {
+    position: relative;
+    padding-left: 40px;
+  }
+  .honors-timeline::before {
+    content: '';
+    position: absolute;
+    left: 15px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--border);
+  }
+  .honor-item {
+    position: relative;
+    margin-bottom: 28px;
+    background: #fff;
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border);
+    transition: all 0.3s;
+  }
+  .honor-item:hover {
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary-light);
+  }
+  .honor-item::before {
+    content: '';
+    position: absolute;
+    left: -33px;
+    top: 28px;
+    width: 12px;
+    height: 12px;
+    background: var(--primary);
+    border-radius: 50%;
+    border: 3px solid #fff;
+    box-shadow: 0 0 0 3px var(--primary-light);
+  }
+  .honor-year {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 4px;
+  }
+  .honor-item h3 { font-size: 18px; color: var(--text-dark); margin-bottom: 4px; }
+  .honor-item .honor-from { font-size: 14px; color: var(--text-light); }
+
+  /* ===== Qualifications ===== */
+  .qual-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+  }
+  .qual-card {
+    background: #fff;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border);
+    transition: all 0.3s;
+    cursor: pointer;
+  }
+  .qual-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+  .qual-card img {
+    width: 100%;
+    height: 260px;
+    object-fit: contain;
+    padding: 16px;
+    background: #fafafa;
+  }
+  .qual-info { padding: 16px 20px 20px; }
+  .qual-info h3 { font-size: 16px; color: var(--text-dark); margin-bottom: 6px; }
+  .qual-info .qual-detail { font-size: 13px; color: var(--text-light); line-height: 1.6; }
+  .qual-info .qual-tag {
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: 8px;
+  }
+  .qual-tag.level { background: #e3f2fd; color: #1565c0; }
+  .qual-tag.date { background: #e8f5e9; color: #2e7d32; }
+
+  /* ===== Contact ===== */
+  #contact {
+    background: var(--gradient-hero);
+    color: #fff;
+    text-align: center;
+  }
+  #contact .section-title { color: #fff; }
+  #contact .section-title::after { background: rgba(255,255,255,0.4); }
+  #contact .section-desc { color: rgba(255,255,255,0.85); margin-left: auto; margin-right: auto; }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+    margin-top: 40px;
+  }
+  .contact-card {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    border-radius: var(--radius-lg);
+    padding: 32px 24px;
+    border: 1px solid rgba(255,255,255,0.2);
+    transition: all 0.3s;
+  }
+  .contact-card:hover { background: rgba(255,255,255,0.18); }
+  .contact-card .icon {
+    font-size: 32px;
+    margin-bottom: 12px;
+    opacity: 0.9;
+  }
+  .contact-card h3 { font-size: 17px; margin-bottom: 6px; }
+  .contact-card p { font-size: 14px; opacity: 0.8; }
+
+  /* ===== Footer ===== */
+  footer {
+    background: #0a1628;
+    color: rgba(255,255,255,0.7);
+    text-align: center;
+    padding: 32px 24px;
+    font-size: 14px;
+  }
+  footer a { color: var(--accent); }
+  footer a:hover { text-decoration: underline; }
+
+  /* ===== Lightbox ===== */
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    background: rgba(0,0,0,0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+  }
+  .lightbox.open { opacity: 1; pointer-events: all; }
+  .lightbox img {
+    max-width: 90vw;
+    max-height: 90vh;
+    border-radius: 8px;
+  }
+  .lightbox-close {
+    position: absolute;
+    top: 24px;
+    right: 32px;
+    font-size: 36px;
+    color: #fff;
+    cursor: pointer;
+    background: none;
+    border: none;
+  }
+
+  /* ===== Responsive ===== */
+  @media (max-width: 768px) {
+    .menu-btn { display: flex; }
+    nav {
+      position: fixed;
+      top: 72px;
+      left: 0;
+      right: 0;
+      background: rgba(255,255,255,0.98);
+      backdrop-filter: blur(16px);
+      flex-direction: column;
+      padding: 16px;
+      border-bottom: 1px solid var(--border);
+      transform: translateY(-100%);
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.3s;
+    }
+    nav.open { transform: translateY(0); opacity: 1; pointer-events: all; }
+    .hero-content h1 { font-size: 32px; }
+    .hero-content p { font-size: 16px; }
+    .about-grid { grid-template-columns: 1fr; gap: 32px; }
+    .section-title { font-size: 28px; }
+    .hero-stats { gap: 24px; }
+    .hero-stat .num { font-size: 28px; }
+  }
+
+  /* ===== Animations ===== */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: all 0.6s ease-out;
+  }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  .back-to-top {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    width: 48px;
+    height: 48px;
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: var(--shadow-md);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s;
+    z-index: 999;
+  }
+  .back-to-top.visible { opacity: 1; pointer-events: all; }
+  .back-to-top:hover { transform: translateY(-3px); background: var(--primary-lighter); }
+</style>
+</head>
+<body>
+
+<!-- ===== Header ===== -->
+<header id="header">
+  <div class="header-inner">
+    <a href="#hero" class="logo">
+      <img src="PPT/LOGO.png" alt="华宝源" class="logo-img">
+    </a>
+    <button class="menu-btn" id="menuBtn" aria-label="菜单">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="nav">
+      <a href="#hero" class="active">首页</a>
+      <a href="#about">关于我们</a>
+      <a href="#services">业务范围</a>
+      <a href="#gallery">工程案例</a>
+      <a href="#honors">企业荣誉</a>
+      <a href="#qualifications">企业资质</a>
+      <a href="#contact">联系我们</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== Hero ===== -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <img src="PPT/LOGO.png" alt="华宝源" class="hero-logo">
+    <div class="hero-badge">青岛华宝源通讯工程有限公司</div>
+    <h1>通信工程施工专家</h1>
+    <p>专注通信设备安装与通信工程施工，为中国移动、中国电信、中国铁塔提供优质服务</p>
+    <div class="hero-btns">
+      <a href="#about" class="btn btn-primary">了解我们</a>
+      <a href="#services" class="btn btn-outline">业务范围</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="num" data-count="20">0</div><div class="label">年行业经验</div></div>
+      <div class="hero-stat"><div class="num" data-count="3">0</div><div class="label">核心合作伙伴</div></div>
+      <div class="hero-stat"><div class="num" data-count="6">0</div><div class="label">项行业荣誉</div></div>
+      <div class="hero-stat"><div class="num" data-count="1000">0</div><div class="label">+ 完成项目</div></div>
+    </div>
+  </div>
+  <div class="scroll-indicator">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+  </div>
+</section>
+
+<!-- ===== About ===== -->
+<section id="about">
+  <div class="section-inner fade-in">
+    <span class="section-label">About Us</span>
+    <h2 class="section-title">关于我们</h2>
+    <p class="section-desc">
+      青岛华宝源通讯工程有限公司是一家专业从事通信工程施工的企业，长期服务于中国移动、中国电信、中国铁塔等大型通信运营商的基础设施建设与维护，积累了丰富的行业经验。
+    </p>
+    <div class="about-grid">
+      <div class="about-image">
+        <img src="PPT/公司照片/刘帅.jpg" alt="青岛华宝源通讯工程有限公司">
+      </div>
+      <div class="about-text">
+        <div class="company-name">青岛华宝源通讯工程有限公司</div>
+        <p>
+          公司自成立以来，始终秉持<strong>"信誉第一、服务至上"</strong>的经营理念，致力于为通信运营商提供高质量的工程施工与设备安装服务。公司拥有专业的技术团队和完备的施工设备，业务覆盖通信基站建设、传输线路施工、室内分布系统、设备安装调试等多个领域。
+        </p>
+        <p>
+          作为中国通信企业协会认可的优秀企业，华宝源通讯凭借扎实的技术实力和优质的服务赢得了客户的广泛信赖，多次荣获行业"先进单位"、"用户满意企业"等荣誉称号。
+        </p>
+        <div class="about-features">
+          <div class="about-feature">
+            <div class="icon">🏗️</div>
+            <div><h4>专业施工</h4><p>丰富的通信工程施工经验</p></div>
+          </div>
+          <div class="about-feature">
+            <div class="icon">👷</div>
+            <div><h4>技术团队</h4><p>持证上岗的专业技术人员</p></div>
+          </div>
+          <div class="about-feature">
+            <div class="icon">🛡️</div>
+            <div><h4>安全可靠</h4><p>严格的安全管理体系</p></div>
+          </div>
+          <div class="about-feature">
+            <div class="icon">🤝</div>
+            <div><h4>客户至上</h4><p>以客户需求为导向</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Partners ===== -->
+<section id="partners">
+  <div class="section-inner fade-in">
+    <span class="section-label">Our Partners</span>
+    <h2 class="section-title">合作伙伴</h2>
+    <p class="section-desc">公司与国内主流通信运营商建立了长期稳定的合作关系</p>
+    <div class="partners-grid">
+      <div class="partner-card">
+        <div class="partner-logo">
+          <img src="PPT/partner-中国移动.png" alt="中国移动">
+        </div>
+      </div>
+      <div class="partner-card">
+        <div class="partner-logo">
+          <img src="PPT/partner-中国电信.png" alt="中国电信">
+        </div>
+      </div>
+      <div class="partner-card">
+        <div class="partner-logo">
+          <img src="PPT/partner-中国铁塔.png" alt="中国铁塔">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Services ===== -->
+<section id="services">
+  <div class="section-inner fade-in">
+    <span class="section-label">Our Services</span>
+    <h2 class="section-title">业务范围</h2>
+    <p class="section-desc">覆盖通信工程全链条的专业服务能力</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">📡</div>
+        <h3>通信基站建设</h3>
+        <p>承接中国移动、中国电信、中国铁塔的基站选址、土建施工、铁塔安装、设备开通等全流程建设服务，覆盖城市与偏远区域。</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🔧</div>
+        <h3>设备安装调试</h3>
+        <p>通信机房设备安装、天馈系统安装、电源系统安装调试，涵盖华为、中兴等主流厂商设备，确保高质量交付。</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🔌</div>
+        <h3>传输线路施工</h3>
+        <p>光纤光缆敷设、管道施工、架空线路架设、光缆接续测试等传输工程施工，保障通信网络的稳定运行。</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📶</div>
+        <h3>室内分布系统</h3>
+        <p>大型商场、写字楼、地铁、隧道等场景的室内信号覆盖方案设计与施工，解决室内通信盲区问题。</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🛠️</div>
+        <h3>网络维护优化</h3>
+        <p>通信设备的日常巡检、故障抢修、网络优化、应急通信保障等服务，先后参与上合组织青岛峰会等重大活动通信保障。</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">⚡</div>
+        <h3>电力配套工程</h3>
+        <p>通信基站的市电引入、电源改造、蓄电池更换、防雷接地等电力配套施工，确保设备安全稳定运行。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Gallery ===== -->
+<section id="gallery">
+  <div class="section-inner fade-in">
+    <span class="section-label">Project Gallery</span>
+    <h2 class="section-title">工程案例</h2>
+    <p class="section-desc">实地施工场景，记录每一个专业瞬间</p>
+    <div class="gallery-grid">
+      <div class="gallery-item" onclick="openLightbox('PPT/工作照片/微信图片_20201010094201.jpg')">
+        <img src="PPT/工作照片/微信图片_20201010094201.jpg" alt="通信设备机柜检修" loading="lazy">
+        <div class="gallery-overlay"><span>通信设备机柜检修作业</span></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox('PPT/工作照片/微信图片_20201010094223.jpg')">
+        <img src="PPT/工作照片/微信图片_20201010094223.jpg" alt="中兴设备面板操作" loading="lazy">
+        <div class="gallery-overlay"><span>中兴通信设备调试</span></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox('PPT/工作照片/微信图片_20201010094134.jpg')">
+        <img src="PPT/工作照片/微信图片_20201010094134.jpg" alt="设备搬运" loading="lazy">
+        <div class="gallery-overlay"><span>通信设备搬运作业</span></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox('PPT/工作照片/微信图片_20201010094151.jpg')">
+        <img src="PPT/工作照片/微信图片_20201010094151.jpg" alt="海岛施工" loading="lazy">
+        <div class="gallery-overlay"><span>大公岛通信设备安装</span></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox('PPT/工作照片/微信图片_20201010094206.jpg')">
+        <img src="PPT/工作照片/微信图片_20201010094206.jpg" alt="配电柜接线" loading="lazy">
+        <div class="gallery-overlay"><span>配电柜接线作业</span></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox('PPT/工作照片/微信图片_20201010094211.jpg')">
+        <img src="PPT/工作照片/微信图片_20201010094211.jpg" alt="施工准备" loading="lazy">
+        <div class="gallery-overlay"><span>施工设备装车准备</span></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox('PPT/工作照片/微信图片_20201010094215.jpg')">
+        <img src="PPT/工作照片/微信图片_20201010094215.jpg" alt="现场整理" loading="lazy">
+        <div class="gallery-overlay"><span>施工器材现场整理</span></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox('PPT/工作照片/微信图片_20201010094219.jpg')">
+        <img src="PPT/工作照片/微信图片_20201010094219.jpg" alt="街边维护" loading="lazy">
+        <div class="gallery-overlay"><span>户外通信机柜维护</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Honors ===== -->
+<section id="honors">
+  <div class="section-inner fade-in">
+    <span class="section-label">Honors & Awards</span>
+    <h2 class="section-title">企业荣誉</h2>
+    <p class="section-desc">连续多年荣获行业表彰，用实力赢得认可</p>
+    <div class="honors-timeline">
+      <div class="honor-item">
+        <div class="honor-year">2016年12月</div>
+        <h3>用户满意企业</h3>
+        <div class="honor-from">2015-2016年度通信网络运营维护服务 · 中国通信企业协会</div>
+      </div>
+      <div class="honor-item">
+        <div class="honor-year">2017年4月</div>
+        <h3>先进单位</h3>
+        <div class="honor-from">2016-2017年度通信网络维护服务支撑 · 中国通信企业协会</div>
+      </div>
+      <div class="honor-item">
+        <div class="honor-year">2018年7月</div>
+        <h3>优秀合作单位</h3>
+        <div class="honor-from">上海合作组织青岛峰会信息通信保障 · 中国铁塔山东省分公司</div>
+      </div>
+      <div class="honor-item">
+        <div class="honor-year">2018年12月</div>
+        <h3>用户满意企业</h3>
+        <div class="honor-from">2017-2018年度通信网络运营维护服务 · 中国通信企业协会</div>
+      </div>
+      <div class="honor-item">
+        <div class="honor-year">2019年1月</div>
+        <h3>优秀维护合作伙伴</h3>
+        <div class="honor-from">青岛铁塔产业联盟</div>
+      </div>
+      <div class="honor-item">
+        <div class="honor-year">2019年4月</div>
+        <h3>先进单位</h3>
+        <div class="honor-from">2018-2019年度通信网络维护服务支撑 · 中国通信企业协会</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Qualifications ===== -->
+<section id="qualifications">
+  <div class="section-inner fade-in">
+    <span class="section-label">Qualifications</span>
+    <h2 class="section-title">企业资质</h2>
+    <p class="section-desc">持证经营，资质齐全，值得信赖</p>
+    <div class="qual-grid">
+      <div class="qual-card" onclick="openLightbox('PPT/资质-总承包.png')">
+        <img src="PPT/资质-总承包.png" alt="建筑业企业资质证书（省）" loading="lazy">
+        <div class="qual-info">
+          <h3>建筑业企业资质证书</h3>
+          <div class="qual-detail">
+            颁发：山东省住房和城乡建设厅<br>
+            证书编号：D237140625<br>
+            有效期至：2029年3月26日
+          </div>
+          <span class="qual-tag level">通信工程施工总承包 贰级</span>
+          <span class="qual-tag level">建筑工程施工总承包 贰级</span>
+          <span class="qual-tag level">电力工程施工总承包 贰级</span>
+          <span class="qual-tag level">电子与智能化工程专业承包 壹级</span>
+        </div>
+      </div>
+      <div class="qual-card" onclick="openLightbox('PPT/资质-安全生产许可证.png')">
+        <img src="PPT/资质-安全生产许可证.png" alt="安全生产许可证" loading="lazy">
+        <div class="qual-info">
+          <h3>安全生产许可证</h3>
+          <div class="qual-detail">
+            颁发：山东省住房和城乡建设厅<br>
+            证书编号：（鲁）JZ安许证字[2018]022077<br>
+            有效期至：2027年10月25日
+          </div>
+          <span class="qual-tag date">建筑施工</span>
+        </div>
+      </div>
+      <div class="qual-card" onclick="openLightbox('PPT/资质-施工劳务.png')">
+        <img src="PPT/资质-施工劳务.png" alt="建筑业企业资质证书（市）" loading="lazy">
+        <div class="qual-info">
+          <h3>建筑业企业资质证书</h3>
+          <div class="qual-detail">
+            颁发：青岛市行政审批服务局<br>
+            证书编号：D337140622<br>
+            有效期至：2028年11月3日
+          </div>
+          <span class="qual-tag level">施工劳务不分等级</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Contact ===== -->
+<section id="contact">
+  <div class="section-inner fade-in">
+    <span class="section-label">Contact Us</span>
+    <h2 class="section-title">联系我们</h2>
+    <p class="section-desc">期待与您携手合作，共创通信美好未来</p>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="icon">📍</div>
+        <h3>公司地址</h3>
+        <p>山东省青岛市崂山区沙子口街道松山后社区</p>
+      </div>
+      <div class="contact-card">
+        <div class="icon">📞</div>
+        <h3>联系电话</h3>
+        <p><a href="tel:13869846269" style="color:#fff;">13869846269</a></p>
+      </div>
+      <div class="contact-card">
+        <div class="icon">📧</div>
+        <h3>电子邮箱</h3>
+        <p><a href="mailto:13869846269@139.com" style="color:#fff;">13869846269@139.com</a></p>
+      </div>
+      <div class="contact-card">
+        <div class="icon">🕐</div>
+        <h3>服务时间</h3>
+        <p>7×24小时全天候响应</p>
+      </div>
+    </div>
+    <div class="map-container fade-in">
+      <iframe
+        src="https://www.openstreetmap.org/export/embed.html?bbox=120.52,36.08,120.58,36.12&amp;layer=mapnik&amp;marker=36.098,120.549"
+        width="100%" height="360" style="border:none;border-radius:16px;margin-top:32px;"
+        title="公司位置" loading="lazy">
+      </iframe>
+      <p style="margin-top:8px;font-size:12px;opacity:0.7;">
+        <a href="https://www.openstreetmap.org/?mlat=36.098&amp;mlon=120.549#map=14/36.098/120.549" target="_blank" style="color:#fff;text-decoration:underline;">在完整地图中查看</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer>
+  <p>&copy; 2025 青岛华宝源通讯工程有限公司 | 信誉第一 · 服务至上</p>
+  <p style="margin-top:8px;font-size:12px;opacity:0.6;">专注通信工程施工，服务中国移动 · 中国电信 · 中国铁塔</p>
+</footer>
+
+<!-- ===== Lightbox ===== -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close">&times;</button>
+  <img src="" alt="" id="lightboxImg">
+</div>
+
+<!-- ===== Back to Top ===== -->
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到顶部">↑</button>
+
+<script>
+  // Menu toggle
+  const menuBtn = document.getElementById('menuBtn');
+  const nav = document.getElementById('nav');
+  menuBtn.addEventListener('click', () => {
+    menuBtn.classList.toggle('open');
+    nav.classList.toggle('open');
+  });
+
+  // Close mobile menu on link click
+  nav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      menuBtn.classList.remove('open');
+      nav.classList.remove('open');
+    });
+  });
+
+  // Header scroll effect
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 50);
+    document.getElementById('backToTop').classList.toggle('visible', window.scrollY > 500);
+  });
+
+  // Active nav link on scroll
+  const sections = document.querySelectorAll('section[id]');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+      const top = section.offsetTop - 100;
+      if (window.scrollY >= top) current = section.getAttribute('id');
+    });
+    nav.querySelectorAll('a').forEach(a => {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  });
+
+  // Fade-in animation
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Counter animation
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const num = entry.target;
+        const target = parseInt(num.getAttribute('data-count'));
+        const duration = 1500;
+        const step = target / (duration / 16);
+        let current = 0;
+        const timer = setInterval(() => {
+          current += step;
+          if (current >= target) { current = target; clearInterval(timer); }
+          num.textContent = Math.floor(current) + (target > 10 ? '+' : '');
+        }, 16);
+        counterObserver.unobserve(num);
+      }
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('.hero-stat .num').forEach(el => counterObserver.observe(el));
+
+  // Lightbox
+  function openLightbox(src) {
+    document.getElementById('lightboxImg').src = src;
+    document.getElementById('lightbox').classList.add('open');
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+</script>
+</body>
+</html>
